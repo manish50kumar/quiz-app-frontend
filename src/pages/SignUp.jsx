@@ -44,7 +44,7 @@ function SignUp() {
     }
 
     return (
-        <div className="w-[100vw] h-[86vh] flex flex-col items-center  bg-slate-500  text-white pt-6">
+        <div className="w-[100vw] h-[86vh] flex flex-col items-center  bg-slate-600  text-white pt-6">
             <h1 className="font-bold text-4xl pb-4"> Sign Up </h1>
             <form onSubmit={handleOnSubmit}>
                 <div>
@@ -56,7 +56,7 @@ function SignUp() {
                         name="name"
                         value={name}
                         onChange={handleOnChange}
-                        className="text-black w-[400px] h-[40px]  rounded-md "
+                        className="text-black w-[400px] h-[40px]  rounded-md pl-4"
                     />
                     <br /> <br />
                 <label htmlFor="email" className="font-medium text-2xl mr-7 mb-4">Email  </label> <br />
@@ -67,19 +67,19 @@ function SignUp() {
                         name="email"
                         value={email}
                         onChange={handleOnChange}
-                        className="text-black w-[400px] h-[40px]  rounded-md "
+                        className="text-black w-[400px] h-[40px]  rounded-md pl-4"
                     />
                     <br /> <br />
                 <label htmlFor="password" className="font-medium text-2xl mr-7 mb-4">Password  </label> <br />
                     
                     <input
                         type="text"
-                        placeholder="Conform Password"
+                        placeholder="Password"
                         id="password"
                         name="password"
                         value={password}
                         onChange={handleOnChange}
-                        className="text-black w-[400px] h-[40px]  rounded-md "
+                        className="text-black w-[400px] h-[40px]  rounded-md pl-4"
                     />
                     <br /> <br />
                 <label htmlFor="confirmPassword" className="font-medium text-2xl mr-7 mb-4">Conform Password  </label> <br />
@@ -90,7 +90,7 @@ function SignUp() {
                         name="confirmPassword"
                         value={confirmPassword}
                         onChange={handleOnChange}
-                        className="text-black w-[400px] h-[40px]  rounded-md "
+                        className="text-black w-[400px] h-[40px]  rounded-md pl-4"
                     />
                     <br /> <br />
             </div>

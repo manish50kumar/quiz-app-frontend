@@ -1,10 +1,27 @@
 
+
 import homeLogo from "../../assets/logo/homeLogo.png"
 import { Link } from "react-router-dom";
 
+import { useSelector,useDispatch } from "react-redux";
+
+import {setToken} from "../../slices/authSlice"
+
+
 function NavBar() {
+
+    const dispatch = useDispatch();
+    
+    const { token } = useSelector((state) => state.auth);
+
+    const handleOnLogout = (e) => {
+        dispatch(setToken(null));
+        localStorage.clear();
+    }
+    
+
     return (
-        <div className="flex h-[100px]  items-center justify-around border-b-[2px] border-b-blue-700  bg-slate-700 text-white">
+        <div className="flex h-[100px] w-[100%] relative    items-center justify-around border-b-[2px] border-b-blue-700  bg-slate-700 text-white ">
             <div className="w-[60px]  ">
                 <Link to="/">
                     <img src={homeLogo} alt="Logo" width={160} height={32} loading="lazy" />
@@ -24,7 +41,28 @@ function NavBar() {
                         About
                     </Link>
                 </div>
-                <div className="border border-slate-500 pt-2 pb-2 pl-4 pr-4 rounded-[18px] hover:bg-slate-600 transition duration-700 ease-in-out">
+                {
+                    token ?
+                        (<div className="flex gap-7">
+                            <div className="border border-slate-500 pt-2 pb-2 pl-4 pr-4 rounded-[18px] hover:bg-slate-600 transition duration-700 ease-in-out">
+                                <Link to="/quizes">
+                                    Quizes
+                                </Link>
+                            </div>
+                            <div className="border border-slate-500 pt-2 pb-2 pl-4 pr-4 rounded-[18px] hover:bg-slate-600 transition duration-700 ease-in-out">
+                                <Link to="/profile">
+                                    Profile
+                                </Link>
+                            </div>
+                            <div className="border border-slate-500 pt-2 pb-2 pl-4 pr-4 rounded-[18px] hover:bg-slate-600 transition duration-700 ease-in-out">
+                                <button onClick={handleOnLogout}>logout</button>
+                            </div>
+
+                           
+                        </div>)
+                        :
+                         <div className="flex gap-7">
+                    <div className="border border-slate-500 pt-2 pb-2 pl-4 pr-4 rounded-[18px] hover:bg-slate-600 transition duration-700 ease-in-out">
                     <Link to="/signup">
                         SignUp
                     </Link>
@@ -34,6 +72,8 @@ function NavBar() {
                         Login
                     </Link>
                 </div>
+                </div>
+               }
             </div>
         </div>
     )
