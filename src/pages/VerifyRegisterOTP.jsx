@@ -1,25 +1,24 @@
 import { useState } from "react";
-import { toast } from "react-hot-toast";
+import { useParams } from 'react-router-dom';
+import { verifyRegisterOTP } from "../services/operations/authAPI"
 import { useNavigate } from "react-router-dom";
+
 
 function VerifyRegisterOTP() {
     
     const [otp, setOtp] = useState("");
     const navigate = useNavigate();
+    const { token } = useParams();
+    
 
     const handleOnChange = (e) => {
         
         setOtp(e.target.value);
 
     }
-    const handleOnVerify = (e) => {
-        e.preventDefault();
-        console.log(otp);
-        toast.success("Successful verify");
-        // reset 
-        setOtp("");
-        navigate("/login");
-
+    const handleOnVerify = async (e) => {
+        e.preventDefault(); 
+        await verifyRegisterOTP(otp,token,navigate)
     }
 
     return (

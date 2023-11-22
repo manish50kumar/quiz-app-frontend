@@ -2,6 +2,9 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
+import { signUp } from "../services/operations/authAPI";
+
+
 function SignUp() {
 
     const [formData, setFormData] = useState({
@@ -11,6 +14,7 @@ function SignUp() {
         confirmPassword:""
     });
     const navigate = useNavigate();
+    
 
     const { name, email, password, confirmPassword } = formData;
 
@@ -29,8 +33,9 @@ function SignUp() {
             toast.error("Passwords do not match");
             return;
         }
-        console.log(formData);
-
+        console.log(formData.name);
+        signUp(name, email, password, confirmPassword, navigate);
+       
         // reset form data
         setFormData({
             name: "",
@@ -38,9 +43,9 @@ function SignUp() {
             password: "",
             confirmPassword:""
         })
-        toast.success("Otp send");
+        // toast.success("Otp send");
         
-        navigate("/verify-register-otp");
+        // navigate("/verify-register-otp");
     }
 
     return (
