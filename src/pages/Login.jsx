@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { setToken } from "../slices/authSlice";
+// import { setToken } from "../slices/authSlice";
 import { useDispatch } from "react-redux";
+import {login} from "../services/operations/authAPI"
 
 function Login() {
 
@@ -23,9 +24,12 @@ function Login() {
     //handle on submit data
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
-        localStorage.setItem("token", formData.email);
-        dispatch(setToken(localStorage.getItem("token")));
+        // console.log(formData);
+        // localStorage.setItem("token", formData.email);
+        // dispatch(setToken(localStorage.getItem("token")));
+
+        login(email, password, navigate,dispatch);
+
         // reset form 
         setFormData({
             email: "",

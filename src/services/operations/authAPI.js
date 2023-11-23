@@ -1,12 +1,14 @@
 import { toast } from "react-hot-toast";
 
 import { apiConnector } from "../apiConnector";
-
 import { endpoints } from "../apis";
+
+import {setToken} from "../../slices/authSlice"
 
 const {
     SIGNUP_API,
     VERIFY_REGISTER_OTP_API,
+    LOGIN_API
 } = endpoints;
 
 
@@ -59,4 +61,33 @@ export async function verifyRegisterOTP(otp, token, navigate) {
         
     }
 }
+
+
+export async function login(email, password, navigate,dispatch) {
+    // return async (dispatch) => {
+        try {
+            const response = await apiConnector("POST", LOGIN_API, {
+                email,
+                password
+            })
+            console.log("LOGIN API RESPONSE : ", response);
+
+            if (response.data.status !== "success") {
+                 console.log("Error in check")
+                 throw new Error(response.data.message);
+            }
+            toast.success("Login Successfull");
+            dispatch(setToken(response.data.data.token));
+            localStorage.setItem("token", JSON.stringify(response.data.data.token));
+            navigate("/profile");
+
+
+        } catch (error) {
+            console.log("Login ERROR : ", error.response);
+            toast.error(error.response.data.message); 
+            navigate("/login")
+        
+        }
+    }
+// }
 
