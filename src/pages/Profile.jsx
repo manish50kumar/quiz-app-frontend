@@ -46,6 +46,18 @@ function Profile() {
       key: 7,
       path: "/profile/deactivate",
     },
+    {
+      key: 8,
+      path: "/quizes/create-quiz",
+    },
+    {
+      key: 9,
+      path: "/quizes/update-quiz",
+    },
+    {
+      key: 10,
+      path: "/favourite-questions",
+    },
   ], []); 
 
   
@@ -54,10 +66,18 @@ function Profile() {
     const fetchData = async () => {
       const result = await userDetails(token);
       
-      await setUserData({
+      if (result) {
+         await setUserData({
         name: result.name,
         email:result.email
       });
+      }
+      else {
+        await setUserData({
+        name: "name not found",
+        email:"Email not found"
+      });
+      }
       // console.log(" USER : ", userData);
     };
 
@@ -76,11 +96,17 @@ function Profile() {
   return (
     <div className="flex h-[86.5vh] bg-slate-500 relative">
           <ProfileLeftSidebar page={page} setPage={setPage} />
-          <div>
-             <h1> User Profile </h1>
-            <div><h2>Name :  </h2> <h3> {name} </h3> </div>
-            <div><h2>Email :  </h2> <h3> {email} </h3> </div>
+          
+       <div className="flex flex-col justify-center items-center pl-[20%]">
+        <div className="border-2 border-slate-300  text-white w-[40vw]">
+                 <h1 className="pt-6 pl-[30%] pb-6 font-bold text-4xl" > User Profile </h1>
+                  <h2 className="pl-7 font-medium text-3xl">Name : <span className="text-2xl font-normal">{name}</span>  </h2>
+                  <h2 className="pl-7 font-medium text-3xl pb-5">Email : <span className="text-2xl font-normal">{email}</span>  </h2>
+                
+                 
          </div>
+           
+       </div>
     </div>
   );
 }

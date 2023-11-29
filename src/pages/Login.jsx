@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { setToken } from "../slices/authSlice";
 import { useDispatch } from "react-redux";
-import {login} from "../services/operations/authAPI"
+import { login } from "../services/operations/authAPI"
+
 
 function Login() {
 
@@ -36,6 +37,14 @@ function Login() {
             password:""
         })
         navigate("/");
+    }
+
+    const handleOnActivate = () => {
+        navigate("/activate-account")
+    }
+
+    const handleOnForgetPassword = () => {
+        navigate("/auth/forget-password");
     }
 
 
@@ -75,6 +84,19 @@ function Login() {
                     Login
                 </button>
             </form>
+            <br />
+            <button
+                    onClick={handleOnForgetPassword}                    
+                    className="text-white w-[400px] h-[40px]  rounded-md bg-blue-600"
+                >
+                    Forget Password
+                </button> <br />
+            <button
+                    onClick={handleOnActivate}                    
+                    className="text-white w-[400px] h-[40px]  rounded-md bg-blue-600"
+                >
+                    Activate Account
+                </button>
         </div>
     )
 }

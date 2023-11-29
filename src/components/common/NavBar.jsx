@@ -2,6 +2,7 @@
 
 import homeLogo from "../../assets/logo/homeLogo.png"
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { useSelector,useDispatch } from "react-redux";
 
@@ -11,12 +12,14 @@ import {setToken} from "../../slices/authSlice"
 function NavBar() {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     
     const { token } = useSelector((state) => state.auth);
 
     const handleOnLogout = (e) => {
         dispatch(setToken(null));
-        localStorage.clear();
+        localStorage.removeItem("token");
+        navigate("/");
     }
     
 

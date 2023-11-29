@@ -8,7 +8,10 @@ import {setToken} from "../../slices/authSlice"
 const {
     SIGNUP_API,
     VERIFY_REGISTER_OTP_API,
-    LOGIN_API
+    LOGIN_API,
+    ACTIVATE_ACCOUNT_API,
+    FORGET_PASSWORD_API,
+    RESET_PASSWORD_API
 } = endpoints;
 
 
@@ -64,7 +67,7 @@ export async function verifyRegisterOTP(otp, token, navigate) {
 
 
 export async function login(email, password, navigate,dispatch) {
-    // return async (dispatch) => {
+   
         try {
             const response = await apiConnector("POST", LOGIN_API, {
                 email,
@@ -89,5 +92,78 @@ export async function login(email, password, navigate,dispatch) {
         
         }
     }
-// }
+
+
+export async function activateAccount(email, navigate,dispatch) {
+   
+        try {
+            const response = await apiConnector("POST", ACTIVATE_ACCOUNT_API, {
+                email,
+                
+            })
+            console.log("ACTIVATE API RESPONSE : ", response);
+
+            if (response.data.status !== "success") {
+                 console.log("Error in check")
+                 throw new Error(response.data.message);
+            }
+            toast.success(response.data.message);    
+        } catch (error) {
+            console.log("Login ERROR : ", error.response);
+            toast.error(error.response.data.message); 
+            navigate("/login")
+        
+        }
+    }
+
+
+
+
+export async function forgetPassword(email, navigate,dispatch) {
+   
+        try {
+            const response = await apiConnector("POST", FORGET_PASSWORD_API, {
+                email,
+                
+            })
+            console.log("FORGET PASSWORD API RESPONSE : ", response);
+
+            if (response.data.status !== "success") {
+                 console.log("Error in check")
+                 throw new Error(response.data.message);
+            }
+            toast.success(response.data.message);    
+        } catch (error) {
+            console.log("Login ERROR : ", error.response);
+            toast.error(error.response.data.message); 
+            navigate("/login")
+        
+        }
+}
+
+
+export async function resetPassword(password,confirmPassword,userId, navigate) {
+   
+        try {
+            const response = await apiConnector("POST", RESET_PASSWORD_API+userId, {
+                password,
+                confirmPassword
+                
+            })
+            console.log("FORGET PASSWORD API RESPONSE : ", response);
+
+            if (response.data.status !== "success") {
+                 console.log("Error in check")
+                 throw new Error(response.data.message);
+            }
+            toast.success(response.data.message); 
+            navigate("/login");
+        } catch (error) {
+            console.log("Login ERROR : ", error.response);
+            toast.error(error.response.data.message); 
+            navigate("/login")
+        
+        }
+}
+
 
