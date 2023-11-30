@@ -128,6 +128,8 @@ export async function updateQuiz(data,token,navigate) {
     }
 }
 
+
+// published quiz 
 export async function publishedQuiz(quizId, token, navigate) {
     try {
         const response = await apiConnector("PATCH", PUBLISHED_QUIZ_API,
