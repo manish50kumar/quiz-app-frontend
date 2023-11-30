@@ -59,6 +59,8 @@ export async function updateUserDetails(name,token,navigate) {
     }
 }
 
+
+// change password function to connect backend 
 export async function changePassword(currentPassword, newPassword, confirmPassword,token, navigate) {
     try {
         const response = await apiConnector("PUT", CHANGE_USER_PASSWORD_API,

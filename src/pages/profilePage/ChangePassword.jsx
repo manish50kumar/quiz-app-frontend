@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 
 import { changePassword } from "../../services/operations/profileAPI";
 
+
+// change password page 
 function ChangePassword() {
   const [page, setPage] = useState();
   const navigate = useNavigate();
