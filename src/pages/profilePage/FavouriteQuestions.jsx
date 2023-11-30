@@ -5,6 +5,8 @@ import { allFavouriteQuestions } from "../../services/operations/quizAPI";
 import { deleteFavouriteQuestions } from "../../services/operations/quizAPI";
 import { useNavigate } from "react-router-dom";
 
+
+// all favourite question page
 function FavouriteQuestions() {
     const { token } = useSelector((state) => state.auth);
     const navigate = useNavigate();

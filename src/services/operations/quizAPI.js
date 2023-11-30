@@ -270,7 +270,7 @@ export async function particularReport(id, token){
     }
 }
 
-
+// show all favourite question
 export async function allFavouriteQuestions(token) {
     try {
         const response = await apiConnector("GET", SHOW_FAVOURITE_QUESTIONS_API, null,
