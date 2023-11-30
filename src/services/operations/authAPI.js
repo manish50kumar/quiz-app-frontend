@@ -144,7 +144,7 @@ export async function forgetPassword(email, navigate,dispatch) {
         }
 }
 
-
+// reset password after forget password functionality connect to backend
 export async function resetPassword(password,confirmPassword,userId, navigate) {
    
         try {

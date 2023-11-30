@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { resetPassword } from "../../services/operations/authAPI";
 import { useParams } from "react-router-dom";
 
+
+// reset password page
 function ResetPassword () {
     
     const [password, setPassword] = useState("");
