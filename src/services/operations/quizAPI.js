@@ -150,7 +150,7 @@ export async function publishedQuiz(quizId, token, navigate) {
     }
 }
 
-
+// All published quiz for quiz 
 export async function allPublishedQuiz(token){
     try {
         const response = await apiConnector("GET", ALL_PUBLISHED_QUIZ_API, null,

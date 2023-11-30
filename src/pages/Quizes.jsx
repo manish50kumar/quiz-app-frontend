@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { allPublishedQuiz } from "../services/operations/quizAPI";
 import { useNavigate } from "react-router-dom";
 
+
+// All quizes for exam or test page 
 function Quizes() {
     const { token } = useSelector((state) => state.auth);
     const [quizes, setQuizes] = useState();
