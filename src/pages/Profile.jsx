@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 import {userDetails} from "../services/operations/profileAPI"
 
+// find user details profile page 
 function Profile() {
   const [page, setPage] = useState();
   const navigate = useNavigate();

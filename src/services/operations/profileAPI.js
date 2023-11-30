@@ -12,6 +12,8 @@ const {
     DEACTIVATE_ACCOUNT_VERIFY_OTP_API
 } = endpoints;
 
+
+// fetch user details functionality connect to backend  
 export async function userDetails(token) {
     try {
         const response = await apiConnector("GET", GET_USER_DETAIL_API, null, {
