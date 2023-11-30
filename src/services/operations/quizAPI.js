@@ -208,7 +208,7 @@ export async function submitQuiz(quizId, attemptedQuestion, token) {
     }
 }
 
-
+// Add favourite Question
 export async function addFavouriteQuestion(question, options, token) {
     try {
          
