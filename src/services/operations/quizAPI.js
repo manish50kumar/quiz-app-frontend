@@ -186,6 +186,7 @@ export async function startExamFetchData(quizId, token) {
     }
 }
 
+// submit exam 
 export async function submitQuiz(quizId, attemptedQuestion, token) {
     try {
         const response = await apiConnector("POST", SUBMIT_EXAM_API,

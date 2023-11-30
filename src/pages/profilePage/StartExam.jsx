@@ -38,15 +38,17 @@ const StartExam = () => {
         fetchData();
     },[quizId,token])
 
+  
+  // submit exam 
   const handleSubmit = async () => {
     const response =  await submitQuiz(quizId, attemptedQuestions, token);
-    console.log("SETRESULT ", response);
+    // console.log("SETRESULT ", response);
     setResult(response);
       
     // console.log("ANSWER : ", attemptedQuestions);
     setIsSubmit(true);
   };
-
+// add favourite questions
   const handleAddFavourite = async (question, options) => {
     
     await addFavouriteQuestion(question, options, token);
