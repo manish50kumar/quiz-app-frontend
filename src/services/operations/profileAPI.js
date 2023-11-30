@@ -115,6 +115,8 @@ export async function deactivatUserAccount(token, navigate) {
 }
 
 
+
+// deactivate account otp verify functionality
 export async function deactivatAccountOTPVerify(otp,token,dispatch, navigate) {
     try {
         const response = await apiConnector("POST", DEACTIVATE_ACCOUNT_VERIFY_OTP_API,

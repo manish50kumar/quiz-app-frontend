@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { deactivatAccountOTPVerify, deactivatUserAccount } from "../../services/operations/profileAPI";
 
 
-
+// deactivate account otp verification page
 function VerifyDeactivateOTP() {
     
     const [otp, setOtp] = useState("");
