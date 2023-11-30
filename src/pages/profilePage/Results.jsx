@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 import { allReport } from "../../services/operations/quizAPI";
 import { particularReport } from "../../services/operations/quizAPI";
 
+
+// all report page 
 function Results() {
   const [page, setPage] = useState();
   const navigate = useNavigate();
