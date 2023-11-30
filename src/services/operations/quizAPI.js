@@ -54,6 +54,8 @@ export async function  createQuiz(data,token,navigate) {
 }
 
 
+
+// Find all quiz function
 export async function findAllQuiz(token) { 
     try {
         const response = await apiConnector("GET", FIND_ALL_QUIZ_API, null, {
