@@ -21,6 +21,8 @@ const {
     DELETE_FAVOURITE_QUESTIONS_API
 } = endpoints;
 
+
+// create quiz function to connect backend
 export async function  createQuiz(data,token,navigate) {
     try {
         console.log("Data in create : ", data.name);

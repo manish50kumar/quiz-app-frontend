@@ -3,6 +3,8 @@ import { createQuiz } from "../../services/operations/quizAPI"
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+
+// create quiz page 
 const QuizForm = () => {
   const { token } = useSelector((state) => state.auth);
   const navigate = useNavigate();
