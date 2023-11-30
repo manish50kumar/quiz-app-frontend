@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { signUp } from "../services/operations/authAPI";
 
-
+// sign up page
 function SignUp() {
 
     const [formData, setFormData] = useState({

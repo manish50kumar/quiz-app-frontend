@@ -15,7 +15,7 @@ const {
 } = endpoints;
 
 
-
+// sign up backend connection
 export async function signUp(name, email, password, confirmPassword, navigate) {
     
     try {
