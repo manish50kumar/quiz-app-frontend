@@ -74,7 +74,7 @@ export async function findAllQuiz(token) {
     }
 }
  
-
+// update quiz set data
 export async function setDataForUpdateQuiz(data, navigate,dispatch) {
     
         try {
@@ -96,7 +96,7 @@ export async function setDataForUpdateQuiz(data, navigate,dispatch) {
         }
 }
     
-
+// update the quiz
 export async function updateQuiz(data,token,navigate) {
     try {
         const response = await apiConnector("PUT", UPDATE_QUIZ_API,

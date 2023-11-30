@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updateQuiz } from '../../services/operations/quizAPI';
 
-
+// update quiz page 
 const QuizEditor = () => {
  
   const navigate = useNavigate();
