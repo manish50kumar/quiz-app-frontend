@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { activateAccount } from "../../services/operations/authAPI";
 
+// Activate account page 
 function ActivateAccount () {
     
     const [email, setEmail] = useState("");

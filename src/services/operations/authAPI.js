@@ -96,7 +96,7 @@ export async function login(email, password, navigate,dispatch) {
         }
     }
 
-
+// Activate Account functionality connect to backend
 export async function activateAccount(email, navigate,dispatch) {
    
         try {
