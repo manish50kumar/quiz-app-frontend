@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { verifyRegisterOTP } from "../services/operations/authAPI"
 import { useNavigate } from "react-router-dom";
 
-
+// verification otp for registration page 
 function VerifyRegisterOTP() {
     
     const [otp, setOtp] = useState("");

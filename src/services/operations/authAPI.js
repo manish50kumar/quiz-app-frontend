@@ -42,6 +42,8 @@ export async function signUp(name, email, password, confirmPassword, navigate) {
     
 }
 
+
+// otp verify for registration backend connection
 export async function verifyRegisterOTP(otp, token, navigate) {
     let response;
     try {
