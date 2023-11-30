@@ -89,7 +89,7 @@ export async function changePassword(currentPassword, newPassword, confirmPasswo
 }
 
 
-
+// deactivate account function to connect backend
 export async function deactivatUserAccount(token, navigate) {
     try {
         const response = await apiConnector("PATCH", DEACTIVATE_ACCOUNT_API,

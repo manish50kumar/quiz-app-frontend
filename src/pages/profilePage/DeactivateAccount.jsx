@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { deactivatUserAccount } from "../../services/operations/profileAPI";
 
+
+// Deactivate account page
 function DeactivateAccount() {
   const [page, setPage] = useState();
   const navigate = useNavigate();
