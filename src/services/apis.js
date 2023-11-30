@@ -23,8 +23,9 @@ export const endpoints = {
     CREATE_QUIZ_API: BASE_URL + "/quiz",
     FIND_ALL_QUIZ_API : BASE_URL +"/quiz", // get
     UPDATE_QUIZ_API : BASE_URL +"/quiz", // put
-    // DELETE_QUIZ_API : BASE_URL +"/quiz", // DEL + params
-    PUBLISHED_QUIZ_API : BASE_URL +"/quiz/publish", // patch
+    DELETE_QUIZ_API : BASE_URL +"/quiz", // DEL + params
+    PUBLISHED_QUIZ_API: BASE_URL + "/quiz/publish", // patch
+    
 
     // All published quies for exam
     ALL_PUBLISHED_QUIZ_API: BASE_URL + "/quiz/allpublishedquiz" ,// get

@@ -12,6 +12,7 @@ const {
     UPDATE_QUIZ_API,
     PUBLISHED_QUIZ_API,
     ALL_PUBLISHED_QUIZ_API,
+    DELETE_QUIZ_API,
     START_EXAM_API,
     ADD_FAVOURITE_QUESTION_API,
     SUBMIT_EXAM_API,
@@ -121,6 +122,26 @@ export async function updateQuiz(data,token,navigate) {
         toast.success(response.data.message);
         navigate("/quizes/draft");
 
+    }
+    catch (error) {
+        console.log("ERROR IN UPDATE QUIZ : ", error.response);
+        toast.error(error.response.data.message);
+    }
+}
+
+// delete Quiz 
+export async function deleteQuiz(quizId, token) {
+    try {
+        const response = await apiConnector("DELETE", DELETE_QUIZ_API + quizId, null,
+            {
+                Authorization: `Bearer ${token}`,
+            }
+        );
+         console.log("QUIZ DELETE RESPONSE : ", response);
+        if (response.data.status !== "success") {
+            throw new Error(response.data.message);
+        }
+        toast.success(response.data.message);
     }
     catch (error) {
         console.log("ERROR IN UPDATE QUIZ : ", error.response);

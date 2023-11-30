@@ -6,7 +6,8 @@ import { useSelector } from 'react-redux';
 import { findAllQuiz } from "../../services/operations/quizAPI";
 import { useNavigate } from 'react-router-dom';
 
-import {setDataForUpdateQuiz} from "../../services/operations/quizAPI"
+import { setDataForUpdateQuiz } from "../../services/operations/quizAPI"
+import { deleteQuiz } from "../../services/operations/quizAPI";
 
 import { useDispatch } from "react-redux";
 
@@ -77,15 +78,10 @@ const QuizList = () => {
     // Fetch quiz data from the backend
     const fetchData = async () => {
       try {
-        const response = await findAllQuiz(token); // Replace with your actual API endpoint
-        // const data = await response.json();
-        // console.log("DATA : ", response);
+        const response = await findAllQuiz(token); 
+        
          setQuizzes(response);
-        // if (data.status === 'success' && data.data) {
-         
-        // } else {
-        //   console.error('Failed to fetch quiz data');
-        // }
+        
       } catch (error) {
         console.error('Error fetching quiz data:', error.message);
       }
@@ -111,9 +107,11 @@ const QuizList = () => {
     
   };
 
-  const handleDeleteQuiz = (id) => {
-    console.log("Delete quiz id : ", id);
-    toast.success("Quiz deleted")
+  const handleDeleteQuiz = async (id) => {
+    await deleteQuiz(id, token);
+    const response = await findAllQuiz(token); 
+        
+    setQuizzes(response);
   }
 
   const handleShowQuiz = () => {
