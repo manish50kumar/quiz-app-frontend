@@ -68,6 +68,7 @@ export async function verifyRegisterOTP(otp, token, navigate) {
 }
 
 
+// login functionality for connect backend
 export async function login(email, password, navigate,dispatch) {
    
         try {

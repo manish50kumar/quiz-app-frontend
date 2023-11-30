@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { setToken } from "../slices/authSlice";
+
 import { useDispatch } from "react-redux";
 import { login } from "../services/operations/authAPI"
 
 
+// Login page 
 function Login() {
 
     const [formData, setFormData] = useState({
