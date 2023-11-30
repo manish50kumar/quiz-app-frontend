@@ -233,7 +233,7 @@ export async function addFavouriteQuestion(question, options, token) {
 }
 
 
-// get all report 
+// get all report  show all report 
 export async function allReport(token) {
     try {
         const response = await apiConnector("GET", ALL_REPORT_API, null,

@@ -6,7 +6,7 @@ import { allReport } from "../../services/operations/quizAPI";
 import { particularReport } from "../../services/operations/quizAPI";
 
 
-// all report page 
+// all report page  show report
 function Results() {
   const [page, setPage] = useState();
   const navigate = useNavigate();
