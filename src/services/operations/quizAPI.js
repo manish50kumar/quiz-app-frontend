@@ -168,7 +168,7 @@ export async function allPublishedQuiz(token){
     }
 }
 
-
+// Start exam 
 export async function startExamFetchData(quizId, token) {
     try {
         const response = await apiConnector("GET", START_EXAM_API + quizId, null,

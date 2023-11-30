@@ -10,6 +10,8 @@ import { startExamFetchData } from "../../services/operations/quizAPI";
 import { addFavouriteQuestion } from "../../services/operations/quizAPI";
 import { submitQuiz } from '../../services/operations/quizAPI';
 
+
+// start exam page 
 const StartExam = () => {
 
   const { quizId } = useParams();
