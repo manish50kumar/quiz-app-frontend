@@ -21,6 +21,8 @@ function FavouriteQuestions() {
         fetchData();
     }, [token])
     
+  
+  // Remove a favourite question
     async function handleRemoveFavourite(id) {
         console.log(id);
         await deleteFavouriteQuestions(id, token, navigate);

@@ -287,6 +287,9 @@ export async function allFavouriteQuestions(token) {
         toast.error(error.response.data.message);
     }
 }
+
+
+// Delete a favourite question
 export async function deleteFavouriteQuestions(id,token,navigate) {
     try {
         const response = await apiConnector("DELETE", DELETE_FAVOURITE_QUESTIONS_API+id, null,
