@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 
 import { updateUserDetails } from "../../services/operations/profileAPI";
 
+
+// update user profile page
 function UpdateProfile() {
   const [page, setPage] = useState();
   const navigate = useNavigate();

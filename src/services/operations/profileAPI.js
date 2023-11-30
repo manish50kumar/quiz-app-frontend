@@ -31,6 +31,8 @@ export async function userDetails(token) {
     }
 }
 
+
+// update user details function to connect backend
 export async function updateUserDetails(name,token,navigate) {
     try {
         const response = await apiConnector("PUT", UPDATE_USER_DETAIL_API,
