@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { forgetPassword } from "../../services/operations/authAPI";
 
+
+// forget password page
 function ForgetPassword () {
     
     const [email, setEmail] = useState("");

@@ -121,7 +121,7 @@ export async function activateAccount(email, navigate,dispatch) {
 
 
 
-
+// forget Password functionality connect to backend
 export async function forgetPassword(email, navigate,dispatch) {
    
         try {
