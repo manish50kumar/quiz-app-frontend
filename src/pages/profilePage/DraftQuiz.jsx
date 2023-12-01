@@ -12,7 +12,7 @@ import { deleteQuiz } from "../../services/operations/quizAPI";
 import { useDispatch } from "react-redux";
 
 import { publishedQuiz } from "../../services/operations/quizAPI";
-import toast from "react-hot-toast";
+
 
 //  Draft or non published Quizes page 
 const QuizList = () => {

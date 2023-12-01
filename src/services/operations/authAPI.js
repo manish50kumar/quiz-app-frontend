@@ -11,7 +11,8 @@ const {
     LOGIN_API,
     ACTIVATE_ACCOUNT_API,
     FORGET_PASSWORD_API,
-    RESET_PASSWORD_API
+    RESET_PASSWORD_API,
+    RESEND_REGISTER_OTP_API
 } = endpoints;
 
 
@@ -67,6 +68,26 @@ export async function verifyRegisterOTP(otp, token, navigate) {
     }
 }
 
+
+// REsend register otp
+
+export async function resendRegisterotp(registrationToken) {
+    try {
+        const response = await apiConnector("GET", RESEND_REGISTER_OTP_API + registrationToken);
+         
+        if (response.data.status !== "success") {
+            console.log("Error in check")
+
+            throw new Error(response.data.message);
+        }
+        console.log("Response OTP : ", response);
+        toast.success(response.data.message);
+    }
+    catch (error) {
+        console.log("resend register otp ERROR : ", error.response.data.message);
+        toast.error(error.response.data.message);
+    }
+}
 
 // login functionality for connect backend
 export async function login(email, password, navigate,dispatch) {

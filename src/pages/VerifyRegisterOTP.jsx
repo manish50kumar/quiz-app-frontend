@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams } from 'react-router-dom';
 import { verifyRegisterOTP } from "../services/operations/authAPI"
 import { useNavigate } from "react-router-dom";
+import { resendRegisterotp } from "../services/operations/authAPI";
 
 // verification otp for registration page 
 function VerifyRegisterOTP() {
@@ -21,6 +22,10 @@ function VerifyRegisterOTP() {
         await verifyRegisterOTP(otp,token,navigate)
     }
 
+    const handleOnResendOTP = async () => {
+        await resendRegisterotp(token);
+    }
+
     return (
         <div className="flex flex-col bg-slate-400  items-center h-[86vh] pt-5">
             <h1 className="text-white font-bold text-3xl">Verify Email OTP</h1>
@@ -36,6 +41,13 @@ function VerifyRegisterOTP() {
                     className="p-3 mt-3 text-white font-medium bg-blue-500 w-[250px]"
                 >
                     Verify
+                </button>
+            </div>
+            <div>
+                <button onClick={handleOnResendOTP}
+                    className="p-3 mt-3 text-white font-medium bg-blue-500 w-[250px]"
+                >
+                    Resend otp
                 </button>
             </div>
         </div>

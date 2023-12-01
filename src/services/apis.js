@@ -11,6 +11,7 @@ export const endpoints = {
     ACTIVATE_ACCOUNT_API: BASE_URL + "/auth/activate",
     FORGET_PASSWORD_API:BASE_URL + "/auth/forgotpassword",
     RESET_PASSWORD_API:BASE_URL + "/auth/forgotpassword/", // POST + PARAMS
+    RESEND_REGISTER_OTP_API:BASE_URL + "/auth/resend-registration-otp/", // POST + PARAMS
 
     //profile
     GET_USER_DETAIL_API : BASE_URL + "/user",
