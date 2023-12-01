@@ -30,6 +30,9 @@ import StartExam from "./pages/profilePage/StartExam"
 
 import FavouriteQuestions from "./pages/profilePage/FavouriteQuestions"
 
+import PrivateRoute from "./components/auth/PrivateRoute";
+import OpenRoute from "./components/auth/OpenRoute";
+
 
 function App() {
   return (
@@ -37,15 +40,29 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/signup" element={<SignUp/>} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<About />} />
+        
+        <Route path="/signup"
+          element={<OpenRoute>
+            <SignUp/>
+          </OpenRoute>}
+        />
+        <Route path="/login"
+          element={<OpenRoute>
+            <Login />
+          </OpenRoute>} />
         <Route path="/auth/forget-password" element={<ForgetPassword />} />
         <Route path="/auth/forgotpassword/:userId" element={<ResetPassword />} />
         <Route path="/activate-account" element={<ActivateAccount />} />
         <Route path="/verify-register-otp/:token" element={<VerifyRegisterOTP />} />
-        <Route path="/profile" element={<Profile/>} />
-        <Route path="/quizes" element={<Quizes />} />
+        <Route path="/profile"
+          element={<PrivateRoute>
+            <Profile/>
+          </PrivateRoute>} />
+        <Route path="/quizes"
+          element={<PrivateRoute>
+            <Quizes />
+          </PrivateRoute>} />
 
         {/* profile routes  */}
 

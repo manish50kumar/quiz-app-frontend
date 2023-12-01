@@ -15,6 +15,7 @@ const {
 
 // fetch user details functionality connect to backend  
 export async function userDetails(token) {
+    
     try {
         const response = await apiConnector("GET", GET_USER_DETAIL_API, null, {
         Authorization: `Bearer ${token}`,
@@ -23,11 +24,14 @@ export async function userDetails(token) {
         if (response.data.status !== "success") {
             throw new Error(response.data.message);
         }
+        
         return response.data.data;
     }
     catch (error) {
         console.log("ERROR IN USER DETAILS : ", error.response.data.message);
         toast(error.response.data.message);
+        
+        localStorage.removeItem("token");
     }
 }
 

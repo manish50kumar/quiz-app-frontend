@@ -3,12 +3,14 @@ import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+
 import {userDetails} from "../services/operations/profileAPI"
 
 // find user details profile page 
 function Profile() {
   const [page, setPage] = useState();
   const navigate = useNavigate();
+
   const { token } = useSelector((state) => state.auth);
 
   const [userData, setUserData] = useState({
